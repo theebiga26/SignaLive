@@ -7,8 +7,8 @@ const Pricing = () => {
     {
       title: 'Monitoring',
       ribbonText: 'MONITORING',
-      priceMonthly: '$499',
-      priceAnnual: '$4,790',
+      priceMonthly: '$99',
+      priceAnnual: '$79',
       colorTheme: 'from-orange-400 to-red-500',
       shadowColor: 'rgba(249,115,22,0.5)',
       icon: (
@@ -26,8 +26,8 @@ const Pricing = () => {
     {
       title: 'Enterprise',
       ribbonText: 'ENTERPRISE',
-      priceMonthly: '$1,499',
-      priceAnnual: '$14,390', // 20% off
+      priceMonthly: '$249',
+      priceAnnual: '$199', // 20% off
       isRecommended: true,
       colorTheme: 'from-orange-500 to-red-600',
       shadowColor: 'rgba(239,68,68,0.5)',
@@ -37,7 +37,7 @@ const Pricing = () => {
         </svg>
       ),
       features: [
-        'Full AI anomaly detection',
+        'Advanced anomaly detection',
         'Advanced predictive insights',
         '500GB Operational Storage',
         'Dedicated engineering support',
@@ -46,8 +46,8 @@ const Pricing = () => {
     {
       title: 'Intelligence',
       ribbonText: 'INTELLIGENCE',
-      priceMonthly: '$4,999',
-      priceAnnual: '$47,990', // 20% off
+      priceMonthly: '$499',
+      priceAnnual: '$399', // 20% off
       colorTheme: 'from-red-500 to-rose-600',
       shadowColor: 'rgba(225,29,72,0.5)',
       icon: (
@@ -116,17 +116,28 @@ const Pricing = () => {
               {/* Main Body */}
               <div className={`w-full bg-[#0f172a] px-5 pt-10 pb-16 z-10 rounded-2xl relative transition-transform duration-300 group-hover:-translate-y-2 border ${plan.isRecommended ? 'border-orange-500/50 shadow-[0_0_50px_rgba(249,115,22,0.3)]' : 'border-white/5 shadow-[0_20px_40px_rgba(0,0,0,0.6)]'}`}>
                 
+                {plan.icon}
+                
                 {plan.isRecommended && (
-                  <div className="absolute top-0 right-4 -translate-y-1/2 bg-gradient-to-r from-orange-500 to-red-600 text-white text-[9px] font-black tracking-widest uppercase py-1.5 px-3 rounded-full shadow-[0_0_15px_rgba(249,115,22,0.6)] border border-orange-400/30 animate-pulse">
-                    Recommended
+                  <div className="flex justify-center mb-3">
+                    <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 text-white text-[10px] font-black tracking-[0.15em] uppercase py-1 px-3.5 rounded-full shadow-[0_0_20px_rgba(249,115,22,0.8)] border border-white/25 animate-pulse">
+                      <svg className="w-3 h-3 text-white fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      Recommended Plan
+                    </div>
                   </div>
                 )}
-                
-                {plan.icon}
-                <p className="text-center text-gray-400 text-[10px] xl:text-xs mb-6">Seamless integration for your designated industrial environment.</p>
+
+                <p className="text-center text-gray-400 text-[10px] xl:text-xs mb-5">Seamless integration for your designated industrial environment.</p>
                 <div className="text-center mb-8">
                    <span className="text-3xl font-black text-white">{isAnnual ? plan.priceAnnual : plan.priceMonthly}</span>
-                   {plan.priceMonthly !== '$0' && <span className="text-xs text-gray-400 ml-1">/{isAnnual ? 'yr' : 'mo'}</span>}
+                   <span className="text-xs text-gray-400 ml-1">/mo</span>
+                   {isAnnual && (
+                     <div className="text-[10px] text-orange-400 font-semibold mt-1 tracking-wider uppercase">
+                       Billed annually (20% off)
+                     </div>
+                   )}
                 </div>
                 <ul className="text-gray-300 space-y-3 mb-2 text-xs xl:text-sm text-left">
                   {plan.features.map(f => (

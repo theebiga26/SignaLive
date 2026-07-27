@@ -14,7 +14,7 @@ const Features = () => {
       shadow: "shadow-[0_0_15px_rgba(34,211,238,0.6)]"
     },
     {
-      title: "AI Anomaly Detection",
+      title: "Smart Anomaly Detection",
       description: "Identifies unusual behaviors and potential operational risks using advanced pattern recognition for intelligent early warning detection.",
       img: "/feature_neural.png",
       alt: "Anomaly Detection",

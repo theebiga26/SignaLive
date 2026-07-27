@@ -18,7 +18,7 @@ const FAQ = () => {
     },
     {
       question: "How fast is the anomaly detection?",
-      answer: "Our predictive AI algorithms analyze signal data locally at the edge, reducing response latency to near absolute zero for instantaneous alerts."
+      answer: "Our predictive smart algorithms analyze signal data locally at the edge, reducing response latency to near absolute zero for instantaneous alerts."
     },
     {
       question: "What happens if an edge device goes offline?",

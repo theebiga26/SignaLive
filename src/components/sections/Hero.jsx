@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-950/40 backdrop-blur-md mb-8 shadow-[0_0_15px_rgba(249,115,22,0.15)]">
           <span className="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
           <h2 className="text-orange-500 tracking-[0.3em] text-xs md:text-sm font-semibold uppercase">
-            Industrial AI Detection Active
+            Industrial Smart Detection Active
           </h2>
         </div>
         
@@ -40,21 +40,6 @@ const Hero = () => {
             Initialize Platform
           </Button>
         </div>
-
-
-
-        {/* SDK Showcase */}
-        <div className="mt-8 flex flex-col items-center opacity-60">
-          <span className="text-[9px] uppercase tracking-[0.3em] text-gray-500 mb-3">Compatible Technologies</span>
-          <div className="flex gap-6 items-center grayscale">
-            <span className="font-black tracking-widest text-xs md:text-sm text-gray-400">NVIDIA Jetson</span>
-            <div className="w-1 h-1 rounded-full bg-gray-600"></div>
-            <span className="font-black tracking-widest text-xs md:text-sm text-gray-400">DeepStream</span>
-            <div className="w-1 h-1 rounded-full bg-gray-600"></div>
-            <span className="font-black tracking-widest text-xs md:text-sm text-gray-400">CV SDKs</span>
-          </div>
-        </div>
-
       </div>
 
       {/* Scroll Down Indicator */}
