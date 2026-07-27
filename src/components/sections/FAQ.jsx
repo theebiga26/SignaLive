@@ -27,7 +27,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="w-full h-screen flex flex-col items-center justify-center p-6 pt-24 pb-8 relative overflow-hidden bg-[#0c132c]">
+    <section id="faq" className="w-full min-h-[100svh] pt-24 md:pt-28 lg:pt-28 pb-12 flex flex-col items-center justify-start relative overflow-hidden bg-[#0c132c]">
       
       {/* Background Ambient Glows */}
       <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-orange-600/5 rounded-full blur-[150px] pointer-events-none"></div>
@@ -36,7 +36,7 @@ const FAQ = () => {
       <div className="max-w-[1400px] w-full z-10 mx-auto flex flex-col pointer-events-auto">
         
         {/* Section Header */}
-        <div className="text-center mb-8 relative flex flex-col items-center">
+        <div className="text-center mb-6 mt-2 md:mt-4 relative flex flex-col items-center">
           <div className="flex items-center justify-center gap-4 mb-4">
             <div className="w-12 h-[2px] bg-gradient-to-r from-orange-500 to-red-500"></div>
             <span className="text-orange-500 uppercase font-black tracking-[0.2em] text-sm drop-shadow-[0_0_10px_rgba(249,115,22,0.5)]">FAQS</span>

@@ -2,11 +2,11 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="w-full min-h-[100svh] flex flex-col items-center justify-center p-4 md:p-8 relative pointer-events-auto mt-16 md:mt-0">
+    <section id="contact" className="w-full min-h-[100svh] pt-24 md:pt-28 lg:pt-28 pb-12 flex flex-col items-center justify-start p-4 md:p-8 relative pointer-events-auto">
       <div className="max-w-[1200px] w-full flex flex-col gap-6 md:gap-10">
         
         {/* Top Row: Info Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full mt-10 md:mt-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full mt-2 md:mt-0">
           
           {/* Phone Card */}
           <div className="bg-[#0f172a]/90 backdrop-blur-xl border border-white/10 rounded-2xl p-5 flex flex-col items-center justify-center text-center shadow-[0_10px_30px_rgba(0,0,0,0.5)] group hover:-translate-y-1 transition-transform">

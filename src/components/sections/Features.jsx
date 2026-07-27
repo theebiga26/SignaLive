@@ -62,10 +62,10 @@ const Features = () => {
   }, [featuresList.length]);
 
   return (
-    <section id="features" className="w-full min-h-[100svh] flex flex-col items-center justify-center relative overflow-hidden bg-transparent pointer-events-auto">
+    <section id="features" className="w-full min-h-[100svh] pt-24 md:pt-28 lg:pt-28 pb-12 flex flex-col items-center justify-start relative overflow-hidden bg-transparent pointer-events-auto">
       
       {/* Top Header */}
-      <div className="flex flex-col items-center text-center w-full z-30 pointer-events-none mt-24">
+      <div className="flex flex-col items-center text-center w-full z-30 pointer-events-none mt-2 md:mt-4">
         <div className="flex items-center justify-center gap-4 mb-4">
           <div className="w-12 h-[2px] bg-gradient-to-r from-orange-500 to-red-500"></div>
           <span className="text-orange-500 uppercase font-black tracking-[0.2em] text-sm drop-shadow-[0_0_10px_rgba(249,115,22,0.5)]">CAPABILITIES</span>

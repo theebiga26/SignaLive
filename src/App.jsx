@@ -134,7 +134,7 @@ const App = () => {
               className="relative flex items-center justify-end group"
             >
               {/* Tooltip Label */}
-              <span className={`absolute right-full mr-4 px-3 py-1 bg-[#0a0f1c]/80 backdrop-blur-md rounded-md border border-white/10 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 whitespace-nowrap pointer-events-none ${
+              <span className={`absolute right-4 md:right-5 px-3 py-1 bg-[#0a0f1c]/80 backdrop-blur-md rounded-md border border-white/10 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 whitespace-nowrap pointer-events-none ${
                 isActive 
                   ? 'opacity-100 translate-x-0 text-orange-500 shadow-[0_0_15px_rgba(249,115,22,0.2)] border-orange-500/30' 
                   : 'opacity-0 translate-x-4 text-gray-400 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-cyan-400 group-hover:border-cyan-400/30'
