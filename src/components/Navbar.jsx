@@ -45,8 +45,8 @@ const Navbar = ({ currentSection, setCurrentSection }) => {
       {/* Call to Action */}
       <div className="hidden md:flex items-center space-x-6">
         <button onClick={() => navTo(7)} className="text-xs md:text-sm tracking-widest uppercase font-semibold text-gray-300 hover:text-orange-400 transition-colors">Contact</button>
-        <div className="scale-[0.8]">
-          <Button variant="primary" onClick={() => navTo(5)}>Product</Button>
+        <div className="scale-[0.85] whitespace-nowrap">
+          <Button variant="primary" onClick={() => navTo(5)}>Signalive Core</Button>
         </div>
       </div>
 

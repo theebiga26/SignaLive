@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Button from '../Button';
 
-const AboutUs = ({ isActive }) => {
+const AboutUs = ({ isActive, setCurrentSection }) => {
   const [networkCount, setNetworkCount] = useState(0);
   const [clientCount, setClientCount] = useState(0);
 
@@ -99,7 +98,7 @@ const AboutUs = ({ isActive }) => {
             </div>
           </div>
 
-          <div className="flex flex-wrap sm:flex-nowrap gap-8 mb-6 border-b border-white/10 pb-6">
+          <div className="flex flex-wrap sm:flex-nowrap gap-8 mb-4">
             {/* Progress Circle 1 */}
             <div className="flex items-center gap-4 w-full sm:w-auto hover:-translate-y-1 transition-transform duration-300">
                <div className="relative w-20 h-20 md:w-24 md:h-24 flex-shrink-0">
@@ -127,15 +126,27 @@ const AboutUs = ({ isActive }) => {
                <div>
                  <p className="text-white font-black md:text-lg uppercase tracking-wider">Anomaly</p>
                  <p className="text-gray-400 text-sm">Catch Rate</p>
-               </div>
+                </div>
             </div>
           </div>
 
-          <div>
-             <Button variant="primary" className="w-full sm:w-max">
-                Read More
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-             </Button>
+          <div className="mt-4">
+            <button
+              onClick={() => {
+                if (setCurrentSection) {
+                  setCurrentSection(7);
+                } else {
+                  const el = document.getElementById('contact');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 text-white font-black tracking-wider uppercase shadow-[0_0_25px_rgba(249,115,22,0.4)] hover:shadow-[0_0_40px_rgba(249,115,22,0.7)] transition-all duration-300 hover:scale-105 active:scale-95 text-xs md:text-sm cursor-pointer"
+            >
+              <span>Contact Us</span>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
           </div>
 
         </div>
