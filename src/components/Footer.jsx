@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = ({ setCurrentSection }) => {
+const Footer = ({ setCurrentSection, onOpenLegal }) => {
   return (
     <footer id="footer" className="w-full relative pb-4 pt-16 flex items-center justify-center h-[90vh]"> 
       
@@ -53,7 +53,7 @@ const Footer = ({ setCurrentSection }) => {
                 <div className="flex gap-2 w-full max-w-md">
                   <input 
                     type="email" 
-                    placeholder="transmission@node.com" 
+                    placeholder="info@signalive.net" 
                     className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-orange-400 focus:bg-white/10 transition-all shadow-inner text-sm"
                   />
                   <button className="px-8 py-3 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 text-white font-black tracking-widest uppercase [clip-path:polygon(12px_0,100%_0,100%_calc(100%-12px),calc(100%-12px)_100%,0_100%,0_12px)] transition-all shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_40px_rgba(249,115,22,0.6)] hover:scale-105 active:scale-95 text-xs">
@@ -84,11 +84,11 @@ const Footer = ({ setCurrentSection }) => {
                 </ul>
               </div>
               <div>
-                <h4 className="text-white font-bold mb-2 uppercase tracking-widest text-[10px] md:text-xs border-l-2 border-white/30 pl-2">Legal</h4>
+                <h4 className="text-white font-bold mb-2 uppercase tracking-widest text-[10px] md:text-xs border-l-2 border-cyan-400 pl-2">Legal</h4>
                 <ul className="space-y-1.5 flex flex-col text-gray-400">
-                  <a href="#" className="hover:text-gray-200 transition-colors w-max">Privacy Policy</a>
-                  <a href="#" className="hover:text-gray-200 transition-colors w-max">Terms of Service</a>
-                  <a href="#" className="hover:text-gray-200 transition-colors w-max">Cookie Policy</a>
+                  <button onClick={() => onOpenLegal && onOpenLegal('privacy')} className="hover:text-cyan-400 transition-colors text-left w-max cursor-pointer">Privacy Policy</button>
+                  <button onClick={() => onOpenLegal && onOpenLegal('terms')} className="hover:text-cyan-400 transition-colors text-left w-max cursor-pointer">Terms of Service</button>
+                  <button onClick={() => onOpenLegal && onOpenLegal('cookie')} className="hover:text-cyan-400 transition-colors text-left w-max cursor-pointer">Cookie Policy</button>
                 </ul>
               </div>
             </div>

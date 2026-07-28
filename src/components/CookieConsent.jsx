@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const CookieConsent = () => {
+const CookieConsent = ({ onOpenLegal }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -29,7 +29,14 @@ const CookieConsent = () => {
         <h4 className="text-white font-bold tracking-widest uppercase text-sm">Data Protocols</h4>
       </div>
       <p className="text-gray-400 text-xs mb-6 leading-relaxed">
-        We use essential telemetry (cookies) to ensure optimal node performance and data synchronization across the network. Do you accept our transmission protocols?
+        We use essential telemetry (cookies) to ensure optimal node performance and data synchronization across the network. Review our{' '}
+        <button 
+          onClick={() => onOpenLegal && onOpenLegal('cookie')} 
+          className="text-orange-500 hover:text-orange-400 hover:underline font-bold inline bg-transparent border-none p-0 cursor-pointer"
+        >
+          Cookie Policy
+        </button>{' '}
+        for details. Do you accept our transmission protocols?
       </p>
       <div className="flex gap-3">
         <button 

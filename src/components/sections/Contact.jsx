@@ -14,7 +14,7 @@ const Contact = () => {
               <svg className="w-5 h-5 text-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
               <h3 className="text-white font-bold tracking-widest uppercase text-sm">Comm-Link</h3>
             </div>
-            <p className="text-gray-400 text-sm font-medium">(+62) 8123 456 789</p>
+            <p className="text-gray-400 text-sm font-medium">+1 (415) 555-0119</p>
           </div>
 
           {/* Email Card */}
@@ -23,7 +23,7 @@ const Contact = () => {
               <svg className="w-5 h-5 text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
               <h3 className="text-white font-bold tracking-widest uppercase text-sm">Direct Uplink</h3>
             </div>
-            <p className="text-gray-400 text-sm font-medium">transmission@signalive.net</p>
+            <p className="text-gray-400 text-sm font-medium">info@signalive.net</p>
           </div>
 
           {/* Address Card */}
@@ -32,7 +32,7 @@ const Contact = () => {
               <svg className="w-5 h-5 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
               <h3 className="text-white font-bold tracking-widest uppercase text-sm">Command Center</h3>
             </div>
-            <p className="text-gray-400 text-sm font-medium">Industrial Intelligence HQ</p>
+            <p className="text-gray-400 text-sm font-medium">650 Market St, San Francisco, CA 94102, USA</p>
           </div>
 
         </div>
@@ -121,7 +121,7 @@ const Contact = () => {
                 <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Email Address <span className="text-orange-500">*</span></label>
                 <input 
                   type="email" 
-                  placeholder="transmission@node.com" 
+                  placeholder="info@signalive.net" 
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-orange-400 focus:bg-white/10 transition-all shadow-inner focus:shadow-[0_0_15px_rgba(251,146,60,0.2)] text-sm" 
                 />
               </div>

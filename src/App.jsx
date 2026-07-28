@@ -10,6 +10,7 @@ import FAQ from './components/sections/FAQ'
 import Contact from './components/sections/Contact'
 import Footer from './components/Footer'
 import CookieConsent from './components/CookieConsent'
+import LegalDocument from './components/sections/LegalDocument'
 
 const sections = [
   { id: 'hero', label: 'Home', component: <Hero key="hero" /> },
@@ -25,6 +26,7 @@ const sections = [
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState(0)
+  const [activeLegalDoc, setActiveLegalDoc] = useState(null)
   const isScrolling = useRef(false)
   const touchStartY = useRef(0)
 
@@ -115,7 +117,11 @@ const App = () => {
                 ${isActive ? 'md:opacity-100 md:scale-100 md:z-20 md:translate-y-0' : 'md:opacity-0 md:scale-95 md:z-0 md:translate-y-8 md:pointer-events-none'}
               `}
             >
-              {React.cloneElement(section.component, { setCurrentSection, isActive })}
+              {React.cloneElement(section.component, { 
+                setCurrentSection, 
+                isActive,
+                onOpenLegal: section.id === 'footer' ? setActiveLegalDoc : undefined
+              })}
             </div>
           );
         })}
@@ -159,7 +165,13 @@ const App = () => {
         })}
       </div>
       
-      <CookieConsent />
+      <CookieConsent onOpenLegal={setActiveLegalDoc} />
+      {activeLegalDoc && (
+        <LegalDocument 
+          type={activeLegalDoc} 
+          onClose={() => setActiveLegalDoc(null)} 
+        />
+      )}
     </div>
   )
 }
