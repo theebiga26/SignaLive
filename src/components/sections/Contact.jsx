@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Turnstile } from '@marsidev/react-turnstile';
 
 /* ── Toast Notification ────────────────────────────────────── */
@@ -46,6 +46,7 @@ const Contact = () => {
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
   const [toastVisible, setToastVisible] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState(null);
+  const turnstileRef = useRef(null);
 
   const handleChange = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
@@ -70,6 +71,8 @@ const Contact = () => {
       });
       if (res.ok) {
         setForm({ firstName: '', lastName: '', email: '', message: '' });
+        setTurnstileToken(null);
+        turnstileRef.current?.reset();
         showToast('success');
       } else {
         showToast('error');
@@ -226,6 +229,7 @@ const Contact = () => {
                 {/* Cloudflare Turnstile */}
                 <div className="w-full flex justify-center sm:justify-start mt-2">
                   <Turnstile 
+                    ref={turnstileRef}
                     siteKey="0x4AAAAAAD_upg56nvHMva34" 
                     onSuccess={(token) => setTurnstileToken(token)}
                     onError={() => setTurnstileToken(null)}
