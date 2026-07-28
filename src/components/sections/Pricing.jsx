@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '../Button';
 
 const Pricing = () => {
   const [isAnnual, setIsAnnual] = useState(false);
@@ -62,7 +63,7 @@ const Pricing = () => {
   const activePlan = plans[selectedPlanIndex];
 
   return (
-    <section id="pricing" className="w-full min-h-[100svh] pt-20 md:pt-24 pb-6 flex flex-col items-center justify-center relative pointer-events-auto overflow-hidden">
+    <section id="pricing" className="w-full lg:min-h-[100svh] pt-20 md:pt-24 lg:pt-24 pb-10 xl:pb-12 flex flex-col items-center justify-center relative pointer-events-auto overflow-hidden">
       <div className="max-w-[1200px] w-full flex flex-col items-center text-center z-10 relative px-4">
         
         {/* Section Header */}
@@ -228,9 +229,9 @@ const Pricing = () => {
                 </div>
 
                 {/* Prominent CTA Button at bottom of card */}
-                <button className="w-full py-3 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 text-white font-black tracking-widest uppercase rounded-lg shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_35px_rgba(249,115,22,0.7)] transition-all hover:scale-[1.02] active:scale-[0.98] text-xs cursor-pointer">
+                <Button variant="primary" className="w-full justify-center text-xs md:text-sm">
                   Purchase Plan
-                </button>
+                </Button>
               </div>
             </div>
 

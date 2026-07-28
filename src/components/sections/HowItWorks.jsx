@@ -103,7 +103,7 @@ const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState(null);
 
   return (
-    <section id="how-it-works" className="w-full min-h-[100svh] pt-24 md:pt-28 lg:pt-28 pb-8 flex flex-col items-center justify-start relative pointer-events-auto overflow-hidden">
+    <section id="how-it-works" className="w-full lg:min-h-[100svh] pt-20 md:pt-24 lg:pt-24 pb-10 flex flex-col items-center justify-center relative pointer-events-auto overflow-hidden">
       
       {/* Background Ambient Glows */}
       <div className="absolute top-1/4 left-10 w-80 h-80 bg-orange-600/10 blur-[120px] rounded-full pointer-events-none animate-pulse"></div>
@@ -111,7 +111,7 @@ const HowItWorks = () => {
       <div className="absolute top-1/3 right-1/3 w-80 h-80 bg-cyan-600/10 blur-[120px] rounded-full pointer-events-none animate-pulse" style={{ animationDelay: '4s' }}></div>
 
       {/* Header - Positioned safely below the navbar */}
-      <div className="flex flex-col items-center text-center w-full z-30 pointer-events-none mb-3 lg:mb-4 px-4">
+      <div className="flex flex-col items-center text-center w-full z-30 pointer-events-none mb-3 lg:mb-4 xl:mb-8 px-4">
         <div className="flex items-center justify-center gap-3 mb-1.5">
           <div className="w-8 md:w-12 h-[2px] bg-gradient-to-r from-orange-500 to-red-500"></div>
           <span className="text-orange-500 uppercase font-black tracking-[0.25em] text-xs md:text-sm drop-shadow-[0_0_10px_rgba(249,115,22,0.5)]">
@@ -119,10 +119,10 @@ const HowItWorks = () => {
           </span>
           <div className="w-8 md:w-12 h-[2px] bg-gradient-to-r from-red-500 to-orange-500"></div>
         </div>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 tracking-tight drop-shadow-lg">
+        <h2 className="text-3xl md:text-4xl lg:text-4xl xl:text-6xl font-black text-white mb-1.5 xl:mb-4 tracking-tight drop-shadow-lg">
           How It <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-orange-500 drop-shadow-[0_0_15px_rgba(249,115,22,0.4)]">Works</span>
         </h2>
-        <p className="text-gray-200 max-w-2xl mx-auto text-sm md:text-base font-medium drop-shadow-md">
+        <p className="text-gray-200 max-w-2xl mx-auto text-xs md:text-sm xl:text-base font-medium drop-shadow-md">
           Our real-time industrial anomaly detection pipeline, branching from raw signal streams to predictive operational intelligence.
         </p>
       </div>
@@ -150,8 +150,8 @@ const HowItWorks = () => {
         </div>
 
         {/* SVG Bezier Connector Curves */}
-        <div className="w-full h-[55px] -my-1.5 relative z-10 pointer-events-none">
-          <svg viewBox="0 0 1000 55" className="w-full h-full overflow-visible">
+        <div className="w-full h-[45px] xl:h-[60px] -my-1 xl:-my-2 relative z-10 pointer-events-none">
+          <svg viewBox="0 0 1000 60" preserveAspectRatio="none" className="w-full h-full overflow-visible">
             {/* Top hub center connection point */}
             <circle cx="500" cy="0" r="5" fill="#f97316" className="animate-pulse" style={{ filter: 'drop-shadow(0 0 8px #f97316)' }} />
             
