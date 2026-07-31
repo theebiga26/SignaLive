@@ -1,17 +1,66 @@
 import React, { useState, useEffect } from 'react';
 
 const testimonialsData = [
-  { name: "Node Commander", title: "Sector 7G", quote: "The predictive algorithms implemented in the latest core update have increased our data processing efficiency by 400%. The AI neural network is flawlessly synchronized.", image: "/avatar1.png", colorTheme: "cyan" },
-  { name: "Lead Architect", title: "Project Genesis", quote: "Absolutely revolutionary. The seamless transition between deep learning models and real-time environment adaptation is like nothing we've ever experienced in the field.", image: "/avatar2.png", colorTheme: "orange" },
-  { name: "Data Scientist", title: "Orbital Lab", quote: "The interactive visualizations provided by the neural core allow our team to map out complex quantum structures natively in the browser. Exceptional stability.", image: "/avatar3.png", colorTheme: "red" },
-  { name: "Cybernetics Lead", title: "Neo-Tokyo Base", quote: "Deployment was completely seamless. The interface allows us to directly uplink with global satellite arrays in real-time without any noticeable latency.", image: "/avatar4.png", colorTheme: "cyan" },
-  { name: "Neural Hacker", title: "The Grid", quote: "I've never seen encryption this tight before. The quantum hashing algorithms are entirely unbreakable. Truly a secure platform.", image: "/avatar5.png", colorTheme: "orange" },
-  { name: "Quantum Analyst", title: "Sector 4", quote: "The data streaming capabilities exceeded all our corporate benchmarks. It's truly a next-generation platform for any serious data enterprise.", image: "/avatar6.png", colorTheme: "red" }
+  { 
+    name: "Kathrine Katija", 
+    title: "Marketing Manager, ABC Ad Services", 
+    headline: "Our ad campaigns finally speak to the right audience with clarity resulting in high CTR and ROI.",
+    subquote: "Trust her work, that the words that she delivered completely transformed our brand presence.",
+    image: "/images/testi1 (1).svg", 
+    colorTheme: "orange",
+    rating: 5
+  },
+  { 
+    name: "Node Commander", 
+    title: "Sector 7G Industrial", 
+    headline: "The predictive algorithms implemented in the core update increased data processing efficiency by 400%.",
+    subquote: "The AI neural network is flawlessly synchronized across all edge nodes without any telemetry delay.",
+    image: "/images/testi1 (2).svg", 
+    colorTheme: "cyan",
+    rating: 5
+  },
+  { 
+    name: "Lead Architect", 
+    title: "Project Genesis Infrastructure", 
+    headline: "The seamless transition between deep learning models and real-time environment adaptation is revolutionary.",
+    subquote: "It provides an intelligent detection layer that analyzes operational signals before failures occur.",
+    image: "/images/testi1 (3).svg", 
+    colorTheme: "red",
+    rating: 5
+  },
+  { 
+    name: "Cybernetics Lead", 
+    title: "Neo-Tokyo Satellite Grid", 
+    headline: "Deployment was completely seamless with real-time uplink to global arrays.",
+    subquote: "Zero latency telemetry and automated predictive alert workflows have streamlined our whole operation.",
+    image: "/images/testi1 (4).svg", 
+    colorTheme: "cyan",
+    rating: 5
+  },
+  { 
+    name: "Quantum Analyst", 
+    title: "Sector 4 Data Enterprise", 
+    headline: "The data streaming capabilities exceeded all our corporate benchmarks and security standards.",
+    subquote: "Truly a next-generation platform for high-throughput industrial intelligence.",
+    image: "/images/testi1 (5).svg", 
+    colorTheme: "orange",
+    rating: 5
+  },
+  { 
+    name: "Data Scientist", 
+    title: "Orbital Structures Lab", 
+    headline: "Interactive neural visualizations allow our engineering team to map out complex structures natively.",
+    subquote: "Exceptional system stability, instant pattern recognition, and robust anomaly warning systems.",
+    image: "/images/testi1 (6).svg", 
+    colorTheme: "red",
+    rating: 5
+  }
 ];
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // Auto rotate testimonials
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonialsData.length);
@@ -21,156 +70,118 @@ const Testimonials = () => {
 
   const activeData = testimonialsData[activeIndex];
 
-  const getFilter = (colorTheme) => {
-    if (colorTheme === 'orange') return 'hue-rotate-90';
-    if (colorTheme === 'red') return 'hue-rotate-180 saturate-150';
-    return '';
-  };
+  const len = testimonialsData.length;
+  const prevIdx = (activeIndex - 1 + len) % len;
+  const currIdx = activeIndex;
+  const nextIdx = (activeIndex + 1) % len;
 
-  const getTextColor = (colorTheme) => {
-    if (colorTheme === 'orange') return 'text-orange-500';
-    if (colorTheme === 'red') return 'text-red-500';
-    return 'text-cyan-400';
-  };
+  const visibleCards = [
+    { index: prevIdx, position: 'top' },
+    { index: currIdx, position: 'active' },
+    { index: nextIdx, position: 'bottom' }
+  ];
 
   return (
-    <section id="testimonials" className="w-full min-h-[100svh] relative overflow-hidden bg-[#060b17] pointer-events-auto">
+    <section id="testimonials" className="w-full lg:min-h-[100svh] pt-24 sm:pt-28 md:pt-32 lg:pt-24 pb-12 flex flex-col items-center justify-start lg:justify-center relative overflow-hidden bg-[#060b17] pointer-events-auto">
       
-      {/* ── Mobile layout (< md): stacked vertically ── */}
-      <div className="flex md:hidden flex-col h-full min-h-[100svh]">
+      {/* Background Glows */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-        {/* Text content on top */}
-        <div className="flex-1 flex flex-col justify-center px-5 pt-24 pb-4 bg-[#0c132c]/95 relative z-10">
+      <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
 
-          {/* Decorative glow */}
-          <div className={`absolute right-0 top-1/2 -translate-y-1/2 w-40 h-40 blur-[80px] opacity-20 transition-all duration-1000 ${activeData.colorTheme === 'orange' ? 'bg-orange-500' : activeData.colorTheme === 'red' ? 'bg-red-500' : 'bg-cyan-400'}`}></div>
-
-          <div className="mb-5 relative z-10">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-[2px] bg-gradient-to-r from-orange-500 to-red-500"></div>
-              <span className="text-orange-500 uppercase font-black tracking-[0.2em] text-xs drop-shadow-[0_0_10px_rgba(249,115,22,0.5)]">TESTIMONIALS</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-1 tracking-tight">
-              System <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Feedback</span>
-            </h2>
-            <p className="text-gray-400 text-[10px] tracking-widest uppercase">Live Node Telemetry</p>
+        {/* Section Header — Safely aligned below floating navbar */}
+        <div className="flex flex-col items-center text-center w-full mb-8 lg:mb-12">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-2">
+            <div className="w-8 sm:w-12 h-[2px] bg-gradient-to-r from-orange-500 to-red-500"></div>
+            <span className="text-orange-500 uppercase font-black tracking-[0.2em] text-xs sm:text-sm drop-shadow-[0_0_10px_rgba(249,115,22,0.5)]">
+              TESTIMONIALS
+            </span>
+            <div className="w-8 sm:w-12 h-[2px] bg-gradient-to-r from-orange-500 to-red-500"></div>
           </div>
-
-          <div key={activeIndex} className="animate-[fade-in-up_0.5s_ease-out_forwards] relative z-10">
-            <p className="text-gray-200 text-base sm:text-lg leading-relaxed font-medium mb-5 max-w-sm">
-              {activeData.quote}
-            </p>
-            <div>
-              <h3 className="text-white font-bold text-lg mb-1">{activeData.name}</h3>
-              <p className={`${getTextColor(activeData.colorTheme)} text-[10px] tracking-widest uppercase font-bold mb-2`}>{activeData.title}</p>
-              <div className={`flex gap-1 ${getTextColor(activeData.colorTheme)} text-xs`}>★ ★ ★ ★ ★</div>
-            </div>
-          </div>
-
-          {/* Progress dots */}
-          <div className="mt-6 flex gap-3 relative z-10">
-            {testimonialsData.map((_, i) => (
-              <div
-                key={i}
-                className={`h-1.5 transition-all duration-500 rounded-full cursor-pointer ${
-                  i === activeIndex
-                    ? `w-10 ${activeData.colorTheme === 'orange' ? 'bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.8)]' : activeData.colorTheme === 'red' ? 'bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.8)]' : 'bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]'}`
-                    : 'w-4 bg-white/10 hover:bg-white/30'
-                }`}
-                onClick={() => setActiveIndex(i)}
-              />
-            ))}
-          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight drop-shadow-lg">
+            Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 drop-shadow-[0_0_15px_rgba(249,115,22,0.4)]">Feedback</span>
+          </h2>
+          <p className="text-gray-400 text-xs sm:text-sm tracking-widest uppercase mt-1">
+            Real Operational Intelligence & Verified Reviews
+          </p>
         </div>
 
-        {/* Image grid on bottom */}
-        <div className="grid grid-cols-3 grid-rows-2 h-[35vh] sm:h-[40vh]">
-          {testimonialsData.map((testim, i) => (
-            <div
-              key={i}
-              className={`relative overflow-hidden cursor-pointer group transition-all duration-700 ${activeIndex === i ? 'scale-105 z-10 shadow-[0_0_50px_rgba(0,0,0,0.8)]' : 'scale-100 z-0 grayscale-[40%] hover:grayscale-0'}`}
-              onClick={() => setActiveIndex(i)}
-            >
-              <img
-                src={testim.image}
-                alt={testim.name}
-                className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-110 ${getFilter(testim.colorTheme)} ${activeIndex === i ? 'opacity-100' : 'opacity-50 hover:opacity-80'}`}
-              />
-              <div className={`absolute inset-0 border-4 transition-colors duration-500 ${activeIndex === i ? (testim.colorTheme === 'orange' ? 'border-orange-500' : testim.colorTheme === 'red' ? 'border-red-500' : 'border-cyan-400') : 'border-transparent'}`}></div>
-            </div>
-          ))}
-        </div>
-      </div>
+        {/* Main Side-by-Side Container (3 Avatar Cards Stack + Big Quote Card) */}
+        <div className="w-full flex flex-col md:flex-row items-stretch gap-6 lg:gap-8">
 
-      {/* ── Desktop layout (md+): side-by-side ── */}
-      <div className="hidden md:block absolute inset-0">
+          {/* Left Column: Exactly 3 Avatar Cards (Previous, Active, Next) */}
+          <div className="w-full md:w-[32%] lg:w-[28%] flex flex-row md:flex-col justify-center items-center gap-3 sm:gap-4 py-1">
+            {visibleCards.map(({ index, position }) => {
+              const item = testimonialsData[index];
+              const isActive = position === 'active';
 
-        {/* Right: Image Gallery */}
-        <div className="absolute inset-0 left-[40%] w-[60%] h-full grid grid-cols-3 grid-rows-2 z-0">
-          {testimonialsData.map((testim, i) => (
-            <div
-              key={i}
-              className={`relative overflow-hidden cursor-pointer group transition-all duration-700 ${activeIndex === i ? 'scale-105 z-10 shadow-[0_0_50px_rgba(0,0,0,0.8)]' : 'scale-100 z-0 grayscale-[40%] hover:grayscale-0'}`}
-              onClick={() => setActiveIndex(i)}
-            >
-              <img
-                src={testim.image}
-                alt={testim.name}
-                className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-110 ${getFilter(testim.colorTheme)} ${activeIndex === i ? 'opacity-100' : 'opacity-50 hover:opacity-80'}`}
-              />
-              <div className={`absolute inset-0 border-4 transition-colors duration-500 ${activeIndex === i ? (testim.colorTheme === 'orange' ? 'border-orange-500' : testim.colorTheme === 'red' ? 'border-red-500' : 'border-cyan-400') : 'border-transparent'}`}></div>
-            </div>
-          ))}
-        </div>
-
-        {/* Left: Content Panel */}
-        <div className="absolute top-0 left-0 w-[55%] h-full z-10 flex items-center justify-center pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full bg-[#0c132c]/95 backdrop-blur-3xl shadow-[20px_0_50px_rgba(0,0,0,0.8)] rounded-r-[400px] lg:rounded-r-[500px] border-r border-white/10 pointer-events-auto overflow-hidden">
-            
-            <div className={`absolute -right-20 top-1/2 -translate-y-1/2 w-64 h-64 blur-[100px] opacity-20 transition-all duration-1000 ${activeData.colorTheme === 'orange' ? 'bg-orange-500' : activeData.colorTheme === 'red' ? 'bg-red-500' : 'bg-cyan-400'}`}></div>
-
-            <div className="w-full h-full p-8 md:p-12 lg:p-16 xl:p-20 flex flex-col justify-center relative z-10">
-              
-              <div className="mb-8 md:mb-10">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-[2px] bg-gradient-to-r from-orange-500 to-red-500"></div>
-                  <span className="text-orange-500 uppercase font-black tracking-[0.2em] text-sm drop-shadow-[0_0_10px_rgba(249,115,22,0.5)]">TESTIMONIALS</span>
-                </div>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2 tracking-tight">
-                  System <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 drop-shadow-[0_0_15px_rgba(249,115,22,0.4)]">Feedback</span>
-                </h2>
-                <p className="text-gray-400 text-[10px] md:text-xs tracking-widest uppercase">Live Node Telemetry</p>
-              </div>
-
-              <div key={activeIndex} className="animate-[fade-in-up_0.5s_ease-out_forwards]">
-                <div className={`text-6xl md:text-8xl font-serif leading-none ${getTextColor(activeData.colorTheme)} opacity-20 absolute -z-10 -ml-2 md:-ml-4 -mt-4 md:-mt-6`}>"</div>
-                <p className="text-gray-200 text-lg md:text-xl lg:text-2xl leading-relaxed font-medium mb-6 md:mb-8 max-w-sm md:max-w-lg relative z-10">
-                  {activeData.quote}
-                </p>
-                <div className="relative z-10">
-                  <h3 className="text-white font-bold text-xl md:text-2xl mb-1">{activeData.name}</h3>
-                  <p className={`${getTextColor(activeData.colorTheme)} text-[10px] md:text-xs tracking-widest uppercase font-bold mb-3 md:mb-4`}>{activeData.title}</p>
-                  <div className={`flex gap-1 ${getTextColor(activeData.colorTheme)} text-xs md:text-sm`}>★ ★ ★ ★ ★</div>
-                </div>
-              </div>
-
-              <div className="mt-10 md:mt-12 flex gap-3 relative z-10">
-                {testimonialsData.map((_, i) => (
-                  <div
-                    key={i}
-                    className={`h-1.5 transition-all duration-500 rounded-full cursor-pointer ${
-                      i === activeIndex
-                        ? `w-12 ${activeData.colorTheme === 'orange' ? 'bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.8)]' : activeData.colorTheme === 'red' ? 'bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.8)]' : 'bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]'}`
-                        : 'w-4 bg-white/10 hover:bg-white/30'
-                    }`}
-                    onClick={() => setActiveIndex(i)}
+              return (
+                <div
+                  key={`${index}-${position}`}
+                  onClick={() => setActiveIndex(index)}
+                  className={`relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 md:w-full md:h-28 rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-500 overflow-hidden flex items-center justify-center p-2 border ${
+                    isActive
+                      ? 'bg-[#0c132c] border-orange-500 shadow-[0_0_25px_rgba(249,115,22,0.5)] scale-105 z-10'
+                      : 'bg-[#060b17]/80 border-white/10 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 hover:border-white/30 hover:scale-[1.02]'
+                  }`}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-contain p-1.5 transition-transform duration-500"
                   />
-                ))}
+                  {isActive && (
+                    <div className="absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-orange-500/80 pointer-events-none animate-pulse"></div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Right Column: Large Quote Card */}
+          <div className="w-full md:w-[68%] lg:w-[72%] bg-[#0e1628]/90 backdrop-blur-2xl border border-white/10 rounded-3xl sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 lg:p-12 relative flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden min-h-[340px] sm:min-h-[380px]">
+
+            {/* Giant Background Quote Watermark */}
+            <div className="absolute top-4 right-6 text-white/5 font-serif text-[120px] sm:text-[160px] md:text-[200px] leading-none select-none pointer-events-none">
+              ”
+            </div>
+
+            {/* Quote Content */}
+            <div key={activeIndex} className="relative z-10 animate-[fade-in-up_0.5s_ease-out_forwards]">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-white leading-snug md:leading-normal mb-4 tracking-tight">
+                "{activeData.headline}"
+              </h3>
+              <p className="text-gray-300 text-xs sm:text-sm md:text-base font-normal leading-relaxed max-w-2xl">
+                {activeData.subquote}
+              </p>
+            </div>
+
+            {/* Card Footer (Author Info & Rating) */}
+            <div className="relative z-10 mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div>
+                <h4 className="text-white font-black text-lg sm:text-xl md:text-2xl tracking-tight mb-0.5">
+                  {activeData.name}
+                </h4>
+                <p className="text-orange-400 font-medium text-xs sm:text-sm tracking-wide">
+                  {activeData.title}
+                </p>
               </div>
 
+              {/* 5-Star Rating */}
+              <div className="flex items-center gap-1 text-orange-500 text-lg sm:text-xl">
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+              </div>
             </div>
+
           </div>
+
         </div>
+
       </div>
 
     </section>

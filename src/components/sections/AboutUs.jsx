@@ -18,25 +18,17 @@ const AboutUs = ({ isActive, setCurrentSection }) => {
     <section id="about" className="w-full lg:min-h-[100svh] flex flex-col justify-center px-4 sm:px-6 pt-20 lg:pt-24 pb-10 xl:pb-12 relative pointer-events-auto overflow-x-hidden">
       <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8 z-10 mx-auto">
 
-        {/* ── Left: Image Collage ── */}
-        <div className="w-full lg:w-[44%] relative h-[220px] sm:h-[300px] lg:h-[320px] xl:h-[400px] 2xl:h-[480px] flex-shrink-0 flex items-center justify-center group">
-          <div className="absolute left-[10%] top-[10%] w-[65%] h-[70%] border-2 border-orange-500/20 z-0 translate-x-3 -translate-y-3 group-hover:translate-x-5 group-hover:-translate-y-5 transition-transform duration-700"></div>
-
-          <div className="absolute right-2 sm:right-6 top-0 w-[58%] h-[76%] z-10 border-[4px] sm:border-[6px] border-[#0a0f1c] shadow-[0_0_30px_rgba(249,115,22,0.15)] overflow-hidden group-hover:-translate-y-2 transition-all duration-700">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-transparent mix-blend-overlay z-10 pointer-events-none"></div>
-            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Cyber Network" className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700" />
+        {/* ── Left: About SVG Feature Illustration ── */}
+        <div className="w-full lg:w-[44%] relative h-[260px] sm:h-[340px] lg:h-[360px] xl:h-[440px] flex-shrink-0 flex items-center justify-center group">
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-red-500/5 to-cyan-500/10 rounded-3xl border border-white/10 backdrop-blur-md shadow-[0_0_40px_rgba(249,115,22,0.15)] group-hover:border-orange-500/30 transition-all duration-500 overflow-hidden">
+            <div className="absolute -top-20 -left-20 w-40 h-40 bg-orange-500/20 rounded-full blur-[60px] pointer-events-none"></div>
+            <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-cyan-500/20 rounded-full blur-[60px] pointer-events-none"></div>
+            <img 
+              src="/images/about.svg" 
+              alt="About Signalive" 
+              className="w-full h-full object-contain p-4 sm:p-6 transition-transform duration-700 group-hover:scale-105 filter drop-shadow-[0_0_20px_rgba(249,115,22,0.3)]" 
+            />
           </div>
-
-          <div className="absolute left-0 sm:left-2 top-1/4 w-[52%] h-[66%] z-20 border-[4px] sm:border-[6px] border-[#0a0f1c] shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden group-hover:translate-y-2 group-hover:translate-x-1 transition-transform duration-700">
-            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-transparent mix-blend-overlay z-10 pointer-events-none"></div>
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Server Infrastructure" className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110" />
-          </div>
-
-          {/* Accent squares — smaller on lg */}
-          <div className="absolute top-2 right-[12%] w-8 h-8 sm:w-14 sm:h-14 lg:w-10 lg:h-10 bg-gradient-to-br from-orange-400 to-orange-600 z-0 shadow-[0_0_20px_rgba(249,115,22,0.4)] animate-[bounce_4s_ease-in-out_infinite]"></div>
-          <div className="absolute top-1/3 left-1 sm:left-3 w-6 h-6 sm:w-10 sm:h-10 lg:w-8 lg:h-8 bg-gradient-to-br from-red-500 to-red-700 z-30 shadow-[0_0_15px_rgba(239,68,68,0.5)] animate-[bounce_5s_ease-in-out_infinite_reverse]"></div>
-          <div className="absolute bottom-8 right-0 sm:right-3 w-8 h-8 sm:w-12 sm:h-12 lg:w-10 lg:h-10 bg-[#0a0f1c] border-4 border-orange-500 z-20 animate-[pulse_3s_ease-in-out_infinite]"></div>
-          <div className="absolute bottom-2 left-[18%] w-4 h-4 sm:w-6 sm:h-6 bg-cyan-400 z-30 shadow-[0_0_12px_rgba(34,211,238,0.6)] animate-[bounce_6s_ease-in-out_infinite]"></div>
         </div>
 
         {/* ── Right: Content ── */}

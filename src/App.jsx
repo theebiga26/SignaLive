@@ -149,8 +149,8 @@ const App = () => {
 
       {/* Cinematic Background — fixed on both, but only fills viewport on lg+ */}
       <div className="fixed inset-0 w-full h-full z-0 overflow-hidden bg-black pointer-events-none">
-        <div className="absolute inset-0 w-full h-full bg-cover bg-center animate-cinematic opacity-80 mix-blend-screen" style={{ backgroundImage: "url('/bg-industrial.png')" }}></div>
-        <div className="absolute inset-0 w-full h-full bg-[#0a0f1c]/70"></div>
+        <div className="absolute inset-0 w-full h-full bg-cover bg-center animate-cinematic opacity-85" style={{ backgroundImage: "url('/images/background.svg')" }}></div>
+        <div className="absolute inset-0 w-full h-full bg-[#0a0f1c]/60"></div>
       </div>
 
       {/* Floating Navbar */}

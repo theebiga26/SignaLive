@@ -25,10 +25,12 @@ const Navbar = ({ currentSection, setCurrentSection }) => {
       <nav className="fixed z-50 top-3 left-1/2 -translate-x-1/2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full px-4 sm:px-6 py-2 transition-all duration-300 shadow-[0_0_20px_rgba(249,115,22,0.15)] flex items-center justify-between gap-4 lg:gap-12 w-[92%] lg:w-max">
 
         {/* Logo */}
-        <div className="flex-shrink-0 flex items-center cursor-pointer group" onClick={() => navTo(0)}>
-          <span className="text-lg sm:text-xl lg:text-2xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500 drop-shadow-[0_0_15px_rgba(249,115,22,0.5)]">
-            SIGNALIVE
-          </span>
+        <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer group" onClick={() => navTo(0)}>
+          <img 
+            src="/images/logo.svg" 
+            alt="Signalive Logo" 
+            className="h-10 sm:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_0_15px_rgba(249,115,22,0.6)]" 
+          />
         </div>
 
         {/* Desktop Navigation */}

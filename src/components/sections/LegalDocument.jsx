@@ -71,14 +71,17 @@ const LegalDocument = ({ type, onClose }) => {
 
         {/* Header Section */}
         <div className="p-6 md:p-8 border-b border-white/5 flex items-center justify-between gap-4">
-          <div>
-            <div className="flex items-center gap-3 mb-1">
-              <span className={`w-2 h-2 rounded-full ${getDotColorClass()} animate-pulse`}></span>
-              <span className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-[0.25em]">Transmission Protocol</span>
+          <div className="flex items-center gap-4">
+            <img src="/images/logo.svg" alt="Signalive Logo" className="h-8 md:h-10 w-auto object-contain filter drop-shadow-[0_0_10px_rgba(249,115,22,0.6)]" />
+            <div>
+              <div className="flex items-center gap-3 mb-1">
+                <span className={`w-2 h-2 rounded-full ${getDotColorClass()} animate-pulse`}></span>
+                <span className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-[0.25em]">Transmission Protocol</span>
+              </div>
+              <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">
+                {getHeaderTitle()}
+              </h2>
             </div>
-            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wider">
-              {getHeaderTitle()}
-            </h2>
           </div>
 
           {/* Close Button */}

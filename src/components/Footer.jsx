@@ -36,9 +36,16 @@ const Footer = ({ setCurrentSection, onOpenLegal }) => {
             {/* Logo + Newsletter */}
             <div className="w-full flex flex-col lg:flex-row justify-between items-start border-b border-white/10 pb-3 xl:pb-6 mb-3 xl:mb-6 gap-3 lg:gap-4">
               <div className="text-left">
-                <span className="text-xl sm:text-2xl xl:text-4xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500 drop-shadow-[0_0_20px_rgba(249,115,22,0.6)] block mb-1 xl:mb-3">
-                  SIGNALIVE
-                </span>
+                <div 
+                  className="cursor-pointer inline-block mb-2 xl:mb-3 group"
+                  onClick={() => setCurrentSection && setCurrentSection(0)}
+                >
+                  <img 
+                    src="/images/logo.svg" 
+                    alt="Signalive Logo" 
+                    className="h-10 sm:h-12 xl:h-14 w-auto object-contain filter drop-shadow-[0_0_20px_rgba(249,115,22,0.6)] transition-transform duration-300 group-hover:scale-105" 
+                  />
+                </div>
                 <p className="text-gray-400 max-w-xs text-xs leading-relaxed">
                   Pioneering the next generation of quantum neural networks and interstellar data synchronization.
                 </p>

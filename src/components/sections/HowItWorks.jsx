@@ -11,13 +11,7 @@ const steps = [
     badgeBg: 'bg-orange-950/80 border-orange-500/40 text-orange-400',
     cx: 100,
     path: 'M 500 0 C 500 45, 100 25, 100 80',
-    // Standard Industrial Signal Telemetry / RF Sensor Emblem Logo
-    icon: (
-      <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M12 18h.01M8 14a5 5 0 0 1 8 0M5 10a10 10 0 0 1 14 0M2 6a15 15 0 0 1 20 0" />
-        <circle cx="12" cy="18" r="2" fill="currentColor" />
-      </svg>
-    )
+    iconSrc: '/images/icon_1.svg'
   },
   {
     id: '02',
@@ -29,14 +23,7 @@ const steps = [
     badgeBg: 'bg-rose-950/80 border-rose-500/40 text-rose-400',
     cx: 300,
     path: 'M 500 0 C 500 45, 300 25, 300 80',
-    // Standard Microchip / Smart Processor CPU Emblem Logo
-    icon: (
-      <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <rect x="4" y="4" width="16" height="16" rx="3" strokeWidth="2.2" />
-        <rect x="8" y="8" width="8" height="8" rx="1.5" fill="currentColor" fillOpacity="0.25" strokeWidth="2" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />
-      </svg>
-    )
+    iconSrc: '/images/icon_2.svg'
   },
   {
     id: '03',
@@ -48,14 +35,7 @@ const steps = [
     badgeBg: 'bg-purple-950/80 border-purple-500/40 text-purple-400',
     cx: 500,
     path: 'M 500 0 L 500 80',
-    // Standard Waveform Analytics / Pattern Trend Logo
-    icon: (
-      <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M3 12h4l3-9 4 18 3-9h4" />
-        <circle cx="10" cy="3" r="1.5" fill="currentColor" />
-        <circle cx="14" cy="21" r="1.5" fill="currentColor" />
-      </svg>
-    )
+    iconSrc: '/images/icon_3.svg'
   },
   {
     id: '04',
@@ -67,14 +47,7 @@ const steps = [
     badgeBg: 'bg-cyan-950/80 border-cyan-500/40 text-cyan-400',
     cx: 700,
     path: 'M 500 0 C 500 45, 700 25, 700 80',
-    // Standard Detection Shield & Target Radar Logo
-    icon: (
-      <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <circle cx="12" cy="11" r="3" strokeWidth="2.2" />
-        <circle cx="12" cy="11" r="1" fill="currentColor" />
-      </svg>
-    )
+    iconSrc: '/images/icon_4.svg'
   },
   {
     id: '05',
@@ -86,16 +59,7 @@ const steps = [
     badgeBg: 'bg-emerald-950/80 border-emerald-500/40 text-emerald-400',
     cx: 900,
     path: 'M 500 0 C 500 45, 900 25, 900 80',
-    // Standard AI Neural Brain & Predictive Network Emblem Logo
-    icon: (
-      <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <circle cx="12" cy="5" r="2.5" strokeWidth="2.2" />
-        <circle cx="6" cy="17" r="2.5" strokeWidth="2.2" />
-        <circle cx="18" cy="17" r="2.5" strokeWidth="2.2" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M10.8 7.2L7.2 14.8M13.2 7.2l3.6 7.6M8.5 17h7" />
-        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-      </svg>
-    )
+    iconSrc: '/images/icon_5.svg'
   }
 ];
 
@@ -227,10 +191,12 @@ const HowItWorks = () => {
                     isHovered ? 'scale-110' : 'group-hover:scale-105'
                   }`}>
                     {/* Inner 3D Bright Medallion */}
-                    <div className="w-full h-full rounded-full bg-gradient-to-b from-white via-slate-100 to-slate-200 flex items-center justify-center shadow-[inset_0_2px_5px_rgba(255,255,255,1),inset_0_-2px_4px_rgba(0,0,0,0.15)]">
-                      <div className={`${step.textColor} transition-transform duration-300 ${isHovered ? 'scale-125' : 'group-hover:scale-110'}`}>
-                        {step.icon}
-                      </div>
+                    <div className="w-full h-full rounded-full bg-gradient-to-b from-white via-slate-100 to-slate-200 flex items-center justify-center shadow-[inset_0_2px_5px_rgba(255,255,255,1),inset_0_-2px_4px_rgba(0,0,0,0.15)] p-3">
+                      <img 
+                        src={step.iconSrc} 
+                        alt={step.title} 
+                        className={`w-full h-full object-contain transition-transform duration-300 ${isHovered ? 'scale-110' : 'group-hover:scale-105'}`} 
+                      />
                     </div>
                   </div>
 
@@ -309,10 +275,12 @@ const HowItWorks = () => {
               {/* Medallion Node on Left */}
               <div className="relative flex-shrink-0">
                 <div className={`w-16 h-16 rounded-full p-[2px] bg-gradient-to-br ${step.color} shadow-lg`}>
-                  <div className="w-full h-full rounded-full bg-gradient-to-b from-white via-slate-100 to-slate-200 flex items-center justify-center">
-                    <div className={`${step.textColor} scale-95`}>
-                      {step.icon}
-                    </div>
+                  <div className="w-full h-full rounded-full bg-gradient-to-b from-white via-slate-100 to-slate-200 flex items-center justify-center p-2.5">
+                    <img 
+                      src={step.iconSrc} 
+                      alt={step.title} 
+                      className="w-full h-full object-contain" 
+                    />
                   </div>
                 </div>
                 {/* Step badge */}
