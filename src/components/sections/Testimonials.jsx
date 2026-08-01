@@ -91,7 +91,7 @@ const Testimonials = () => {
       <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
 
         {/* Section Header — Safely aligned below floating navbar */}
-        <div className="flex flex-col items-center text-center w-full mb-8 lg:mb-12">
+        <div className="flex flex-col items-center text-center w-full mb-4 lg:mb-5">
           <div className="flex items-center justify-center gap-3 sm:gap-4 mb-2">
             <div className="w-8 sm:w-12 h-[2px] bg-gradient-to-r from-orange-500 to-red-500"></div>
             <span className="text-orange-500 uppercase font-black tracking-[0.2em] text-xs sm:text-sm drop-shadow-[0_0_10px_rgba(249,115,22,0.5)]">
@@ -108,10 +108,10 @@ const Testimonials = () => {
         </div>
 
         {/* Main Side-by-Side Container (3 Avatar Cards Stack + Big Quote Card) */}
-        <div className="w-full flex flex-col md:flex-row items-stretch gap-6 lg:gap-8">
+        <div className="w-full flex flex-col md:flex-row items-stretch gap-6 lg:gap-8 justify-center">
 
-          {/* Left Column: Exactly 3 Avatar Cards (Previous, Active, Next) */}
-          <div className="w-full md:w-[32%] lg:w-[28%] flex flex-row md:flex-col justify-center items-center gap-3 sm:gap-4 py-1">
+          {/* Left Column: Exactly 3 Square Avatar Cards (Previous, Active, Next) */}
+          <div className="w-full md:w-auto flex flex-row md:flex-col justify-center items-center gap-3 sm:gap-4 py-1">
             {visibleCards.map(({ index, position }) => {
               const item = testimonialsData[index];
               const isActive = position === 'active';
@@ -120,7 +120,7 @@ const Testimonials = () => {
                 <div
                   key={`${index}-${position}`}
                   onClick={() => setActiveIndex(index)}
-                  className={`relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 md:w-full md:h-28 rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-500 overflow-hidden flex items-center justify-center p-2 border ${
+                  className={`relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-500 overflow-hidden flex items-center justify-center p-0 border ${
                     isActive
                       ? 'bg-[#0c132c] border-orange-500 shadow-[0_0_25px_rgba(249,115,22,0.5)] scale-105 z-10'
                       : 'bg-[#060b17]/80 border-white/10 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 hover:border-white/30 hover:scale-[1.02]'
@@ -129,7 +129,7 @@ const Testimonials = () => {
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-full object-contain p-1.5 transition-transform duration-500"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                   {isActive && (
                     <div className="absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-orange-500/80 pointer-events-none animate-pulse"></div>
@@ -140,7 +140,7 @@ const Testimonials = () => {
           </div>
 
           {/* Right Column: Large Quote Card */}
-          <div className="w-full md:w-[68%] lg:w-[72%] bg-[#0e1628]/90 backdrop-blur-2xl border border-white/10 rounded-3xl sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 lg:p-12 relative flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden min-h-[340px] sm:min-h-[380px]">
+          <div className="w-full md:flex-1 bg-[#0e1628]/90 backdrop-blur-2xl border border-white/10 rounded-3xl sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 lg:p-12 relative flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden min-h-[340px] sm:min-h-[380px] lg:min-h-[440px]">
 
             {/* Giant Background Quote Watermark */}
             <div className="absolute top-4 right-6 text-white/5 font-serif text-[120px] sm:text-[160px] md:text-[200px] leading-none select-none pointer-events-none">
@@ -159,13 +159,22 @@ const Testimonials = () => {
 
             {/* Card Footer (Author Info & Rating) */}
             <div className="relative z-10 mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-              <div>
-                <h4 className="text-white font-black text-lg sm:text-xl md:text-2xl tracking-tight mb-0.5">
-                  {activeData.name}
-                </h4>
-                <p className="text-orange-400 font-medium text-xs sm:text-sm tracking-wide">
-                  {activeData.title}
-                </p>
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-orange-500/80 flex-shrink-0 shadow-[0_0_15px_rgba(249,115,22,0.4)] bg-[#0c132c]">
+                  <img
+                    src={activeData.image}
+                    alt={activeData.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="text-white font-black text-lg sm:text-xl md:text-2xl tracking-tight mb-0.5">
+                    {activeData.name}
+                  </h4>
+                  <p className="text-orange-400 font-medium text-xs sm:text-sm tracking-wide">
+                    {activeData.title}
+                  </p>
+                </div>
               </div>
 
               {/* 5-Star Rating */}
