@@ -34,6 +34,19 @@ const App = () => {
   const isScrolling = useRef(false)
   const touchStartY = useRef(0)
 
+  const [isDesktop, setIsDesktop] = useState(
+    typeof window !== 'undefined' ? window.innerWidth >= SNAP_BREAKPOINT : true
+  )
+
+  // Handle window resize dynamically
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= SNAP_BREAKPOINT);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Track visited sections for lazy-mounting
   useEffect(() => {
     if (!visitedSections.includes(currentSection)) {
@@ -179,7 +192,7 @@ const App = () => {
                 }
               `}
             >
-              {(window.innerWidth < SNAP_BREAKPOINT || hasBeenVisited) ? (
+              {(!isDesktop || hasBeenVisited) ? (
                 React.cloneElement(section.component, {
                   setCurrentSection,
                   isActive,

@@ -120,27 +120,27 @@ const Features = () => {
             zIndex = 30;
             opacity = 1;
           } else if (diff === -1) {
-            transformClasses = '-translate-x-[160px] sm:-translate-x-[220px] md:-translate-x-[340px] scale-[0.65] md:scale-[0.75]';
+            transformClasses = '-translate-x-[120px] sm:-translate-x-[220px] md:-translate-x-[340px] scale-[0.58] sm:scale-[0.65] md:scale-[0.75]';
             zIndex = 20;
             opacity = 0.9;
           } else if (diff === 1) {
-            transformClasses = 'translate-x-[160px] sm:translate-x-[220px] md:translate-x-[340px] scale-[0.65] md:scale-[0.75]';
+            transformClasses = 'translate-x-[120px] sm:translate-x-[220px] md:translate-x-[340px] scale-[0.58] sm:scale-[0.65] md:scale-[0.75]';
             zIndex = 20;
             opacity = 0.9;
           } else if (diff === -2) {
-            transformClasses = '-translate-x-[260px] sm:-translate-x-[340px] md:-translate-x-[550px] scale-[0.4] md:scale-[0.55]';
+            transformClasses = '-translate-x-[200px] sm:-translate-x-[340px] md:-translate-x-[550px] scale-[0.35] md:scale-[0.55]';
             zIndex = 10;
-            opacity = 0.5;
+            opacity = 0.4;
           } else if (diff === 2) {
-            transformClasses = 'translate-x-[260px] sm:translate-x-[340px] md:translate-x-[550px] scale-[0.4] md:scale-[0.55]';
+            transformClasses = 'translate-x-[200px] sm:translate-x-[340px] md:translate-x-[550px] scale-[0.35] md:scale-[0.55]';
             zIndex = 10;
-            opacity = 0.5;
+            opacity = 0.4;
           } else if (diff < -2) {
-             transformClasses = '-translate-x-[380px] md:-translate-x-[700px] scale-[0.3]';
+             transformClasses = '-translate-x-[300px] md:-translate-x-[700px] scale-[0.25]';
              zIndex = 0;
              opacity = 0;
           } else if (diff > 2) {
-             transformClasses = 'translate-x-[380px] md:translate-x-[700px] scale-[0.3]';
+             transformClasses = 'translate-x-[300px] md:translate-x-[700px] scale-[0.25]';
              zIndex = 0;
              opacity = 0;
           }
@@ -154,7 +154,7 @@ const Features = () => {
               style={{ zIndex, opacity, pointerEvents: opacity === 0 ? 'none' : 'auto' }}
               onClick={() => setActiveIndex(i)}
             >
-               <div className={`relative flex flex-col justify-center transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] rounded-xl overflow-hidden ${isActive ? 'w-[260px] sm:w-[300px] md:w-[380px] lg:w-[440px] h-[370px] sm:h-[400px] md:h-[430px] bg-[#0c132c]/95 border border-white/10 backdrop-blur-2xl shadow-[0_30px_60px_rgba(0,0,0,0.8)] p-4 sm:p-5 md:p-6' : 'w-[180px] sm:w-[220px] md:w-[300px] lg:w-[340px] h-[120px] sm:h-[150px] md:h-[200px] bg-transparent border-0 p-0 shadow-none'}`}>
+               <div className={`relative flex flex-col justify-center transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] rounded-xl overflow-hidden ${isActive ? 'w-[250px] sm:w-[320px] md:w-[380px] lg:w-[440px] h-[360px] sm:h-[400px] md:h-[430px] bg-[#0c132c]/95 border border-white/10 backdrop-blur-2xl shadow-[0_30px_60px_rgba(0,0,0,0.8)] p-4 sm:p-5 md:p-6' : 'w-[160px] sm:w-[220px] md:w-[300px] lg:w-[340px] h-[120px] sm:h-[150px] md:h-[200px] bg-transparent border-0 p-0 shadow-none'}`}>
                   
                   <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} pointer-events-none transition-opacity duration-[800ms] ${isActive ? 'opacity-10' : 'opacity-0'}`}></div>
                   
